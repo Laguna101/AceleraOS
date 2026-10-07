@@ -1,0 +1,20 @@
+version: 1
+name: qualificador-atendimentos
+model: gpt-5.4-nano
+temperature: 0.2
+tools_enabled:
+  - qualificacao
+knowledge_sources: []
+memory:
+  read: false
+  write: false
+  approval_required: true
+execution:
+  mode: mock
+  dry_run: true
+  timeout_ms: 30000
+  max_retries: 2
+permissions:
+  external_api: false
+  send_messages: false
+  mutate_ads: false

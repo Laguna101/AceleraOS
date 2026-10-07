@@ -1,0 +1,35 @@
+version: 2
+name: disparo-mensagens
+model: gpt-5.4-nano
+temperature: 0.2
+tools_enabled:
+  - campanhas-whatsapp
+knowledge_sources: []
+memory:
+  read: false
+  write: false
+  approval_required: true
+execution:
+  mode: mock
+  dry_run: true
+  timeout_ms: 30000
+  max_retries: 2
+permissions:
+  external_api: false
+  send_messages: false
+  mutate_ads: false
+follow_up:
+  enabled: true
+  timezone: America/Sao_Paulo
+  max_attempts: 3
+  delays_hours: [0, 48, 144]
+  stop_after_silence_days: 30
+  pause_on_reply: true
+  cancel_on_opt_out: true
+  require_approved_template_outside_window: true
+  max_messages_per_contact_per_24h: 1
+  initial_batch_size: 20
+  quality_pause:
+    failure_rate: 0.10
+    block_rate: 0.05
+    opt_out_rate: 0.05

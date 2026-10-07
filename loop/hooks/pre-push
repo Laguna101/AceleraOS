@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# pre-push — protege a MAIN, não o trabalho.
+#
+# A versão anterior bloqueava todo push da máquina. Isso vinha do gov-loop, onde
+# a regra "a sessão do loop NUNCA faz push" fazia sentido: lá o risco era uma
+# sessão autônoma publicando sem o ritual de virada de fase.
+#
+# O efeito colateral era barrar também o fluxo normal de contribuição — abrir uma
+# branch e um PR para revisão humana. Isso empurra o trabalho para fora do
+# processo (patch por fora, cópia manual) em vez de protegê-lo, e um gate que
+# atrapalha o caminho certo acaba sendo contornado.
+#
+# O que precisa de ritual é a MAIN, que é produção. Feature branch existe para
+# ser revisada antes de chegar lá — o PR e o CI são o gate, e este hook não
+# precisa duplicá-los.
+#
+# Escape para o ritual de virada de fase (loop/CHECKPOINT.md), que só dispara com
+# loop/checkpoints/G<N>.approved criado pelo dono:
+if [ "${DESKCOMM_GOV_PHASE_MERGE:-0}" = "1" ]; then
+  exit 0
+fi
+
+# O git entrega no stdin uma linha por ref sendo enviada:
+#   <local_ref> <local_sha> <remote_ref> <remote_sha>
+# Só interessa o destino: bloquear se algum deles for a main.
+bloqueadas=""
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main | refs/heads/master)
+      bloqueadas="$bloqueadas $remote_ref"
+      ;;
+  esac
+done
+
+if [ -n "$bloqueadas" ]; then
+  echo "pre-push BLOQUEADO:$bloqueadas — a main é produção e não recebe push direto." >&2
+  echo "Abra uma branch e um PR; o merge acontece pelo review + CI." >&2
+  echo "Virada de fase do gov-loop: loop/CHECKPOINT.md exporta DESKCOMM_GOV_PHASE_MERGE=1." >&2
+  exit 1
+fi
+
+exit 0
