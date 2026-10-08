@@ -1,0 +1,7 @@
+/* Legibility pass: compact controls retain readable labels at every viewport. */
+.workspace small,.profile small,.connection small,.nav-label,.nav-count,.demo-label,.metric-note,.legend,.axis,.chart-labels,.activity-copy p,.activity-row time,.tag,.agenda-item time,.agenda-item p,.table-foot,.bubble small,.chat-date,.conversation small,.chat-head small,td small,th,footer{font-size:12px}
+.activity-row .avatar{font-size:12px}
+h1{font-size:28px}h2{font-size:20px}h3{font-size:16px}.metric-value{font-size:36px}.metric-value small{font-size:18px}
+.search{width:340px}.search input{min-width:0}.legend{flex-wrap:wrap}.chart-labels{gap:3px;font-size:12px}.metric-note{line-height:1.5}.demo-label{display:inline}
+@media(max-width:1150px){.demo-label{display:none}.metric-value{font-size:28px}}
+@media(max-width:640px){.demo-label{display:none}.chart-labels{font-size:12px}.chart-labels span:nth-child(even){visibility:hidden}.metric-note{font-size:12px}.activity-row time{font-size:12px}.panel-head h2{font-size:20px}.btn,.role-label select,.icon-button{min-height:44px}.metric-value{font-size:28px}.activity-row{flex-wrap:wrap}.activity-row time{margin-left:39px}.metric{padding-right:8px}.header-tools{gap:0}.role-label select{font-size:12px}.topbar{gap:5px}.breadcrumb{font-size:12px}.brand{font-size:24px}}

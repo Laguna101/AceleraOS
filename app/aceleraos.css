@@ -1,0 +1,89 @@
+/* Operate template recovered from previews/aceleraos. Scoped to the app and
+   its body-mounted portals; public pages retain installation branding. */
+body:has(.acelera-shell) {
+  color-scheme: light;
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f5f3ee;
+  --color-text: #1c1a16;
+  --color-text-muted: #5d594f;
+  --color-text-subtle: #7d786c;
+  --color-border: #e7e3da;
+  --color-border-strong: #d2cdbf;
+  --background: #faf9f6;
+  --foreground: #1c1a16;
+  --card: #ffffff;
+  --card-foreground: #1c1a16;
+  --popover: #ffffff;
+  --popover-foreground: #1c1a16;
+  --muted: #f5f3ee;
+  --muted-foreground: #5d594f;
+  --secondary: #f5f3ee;
+  --secondary-foreground: #1c1a16;
+  --color-accent-50: #f3f6f1;
+  --color-accent-100: #e4ebe0;
+  --color-accent-200: #c8d6c1;
+  --color-accent-300: #a4ba9a;
+  --color-accent-400: #82a077;
+  --color-accent-500: #67885d;
+  --color-accent-600: #506d48;
+  --color-accent-700: #41573b;
+  --color-accent-800: #374731;
+  --color-accent-900: #2f3c2b;
+  --color-accent-950: #171f15;
+  --color-accent: #506d48;
+  --color-accent-hover: #41573b;
+  --color-accent-soft: #e4ebe0;
+  --color-accent-fg: #ffffff;
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-accent-fg);
+  --accent-foreground: var(--color-accent-fg);
+  --ring: var(--color-accent-500);
+  --workspace-rail: #f1f0ea;
+  --workspace-selection: #dce6d5;
+  --workspace-selection-text: #374d31;
+  --workspace-panel-shadow: 0 8px 28px -12px rgba(20,18,14,.19);
+}
+.acelera-sidebar { background: var(--workspace-rail); border-color: var(--color-border); }
+.acelera-sidebar nav { padding: 16px 14px; }
+.acelera-sidebar nav > div { margin-bottom: 16px; }
+.acelera-sidebar nav h2 button { font-size: 12px; letter-spacing: .06em; }
+.acelera-sidebar nav a { min-height: 38px; }
+.acelera-sidebar a[aria-current="page"] {
+  background: var(--workspace-selection); color: var(--workspace-selection-text); font-weight: 700;
+}
+.acelera-topbar { min-height: 72px; background: var(--color-bg); }
+.acelera-canvas { padding: 32px 36px; background: var(--color-bg); }
+.acelera-page { width: 100%; max-width: 1450px; margin-inline: auto; padding: 0; gap: 28px; }
+.acelera-page > header { padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+.acelera-page h1 { font-size: 28px; line-height: 36px; letter-spacing: -.025em; font-weight: 700; }
+.acelera-page > header p { margin-top: 8px; line-height: 1.6; }
+.acelera-panel { box-shadow: var(--workspace-panel-shadow, var(--shadow-sm)); border-radius: 12px; }
+.acelera-table { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); }
+.acelera-table thead { background: var(--color-surface-elevated); }
+.acelera-table th { padding: 16px 20px; font-size: 12px; }
+.acelera-table td { padding: 16px 20px; height: 56px; }
+.acelera-inbox { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); box-shadow: var(--workspace-panel-shadow); overflow: hidden; min-height: 480px; }
+.acelera-metrics-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-block: 1px solid var(--color-border); padding: 24px 0; }
+.acelera-metric { padding: 0 24px; border-inline-end: 1px solid var(--color-border); }
+.acelera-metric:first-child { padding-left: 0; }
+.acelera-metric:last-child { border: 0; }
+.acelera-metric dt { color: var(--color-text-muted); font-size: 13px; }
+.acelera-metric dd { font-size: 28px; font-variant-numeric: tabular-nums; margin-top: 8px; }
+.acelera-agent { padding: 24px; gap: 20px; }
+.acelera-agent h3 { font-size: 20px; font-weight: 700; }
+.acelera-agent dl { padding-block: 16px; border-block: 1px solid var(--color-border); }
+.acelera-agent dd { margin-top: 6px; }
+.acelera-hub-link { display: flex; align-items: center; gap: 20px; padding: 24px; min-height: 120px; }
+.acelera-hub-link h3 { font-size: 16px; }
+.acelera-hub-link p { font-size: 13px; line-height: 1.6; }
+.acelera-hub-link:hover { border-color: var(--color-accent-300); background: var(--color-accent-50); }
+.acelera-hub-link:hover { background: var(--color-accent-50); }
+.acelera-board { background: var(--color-surface-elevated); border-radius: 12px; border: 1px solid var(--color-border); }
+@media(max-width: 767px) {
+  .acelera-canvas { padding: 20px 16px; }
+  .acelera-page h1 { font-size: 28px; }
+  .acelera-metrics-strip { grid-template-columns: 1fr; padding: 0; }
+  .acelera-metric, .acelera-metric:first-child { padding: 16px 0; border-inline-end: 0; border-bottom: 1px solid var(--color-border); }
+  .acelera-inbox { border-radius: 8px; }
+}

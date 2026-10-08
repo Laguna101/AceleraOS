@@ -35,7 +35,7 @@ export default async function FollowupFlowsPage() {
   const canWrite = ROLE_RANK[activeOrg.role] >= ROLE_RANK.manager;
 
   return (
-    <div className="flex h-full flex-col gap-6 p-6">
+    <div className="acelera-page flex h-full flex-col gap-6">
       <header className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Follow-ups</h1>

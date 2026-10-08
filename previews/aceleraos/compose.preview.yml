@@ -1,0 +1,24 @@
+services:
+  preview:
+    image: nginx:1.28.0-alpine
+    container_name: aceleraos-design-preview
+    restart: unless-stopped
+    mem_limit: 64m
+    volumes:
+      - ./site:/usr/share/nginx/html/design-preview:ro
+    networks:
+      - proxy
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: easypanel
+      traefik.http.routers.aceleraos-preview.rule: "Host(`crm.aceleraos.com.br`) && (Path(`/design-preview`) || PathPrefix(`/design-preview/`))"
+      traefik.http.routers.aceleraos-preview.priority: "200"
+      traefik.http.routers.aceleraos-preview.entrypoints: https
+      traefik.http.routers.aceleraos-preview.tls.certresolver: letsencrypt
+      traefik.http.services.aceleraos-preview.loadbalancer.server.port: "80"
+      traefik.http.routers.aceleraos-preview.middlewares: aceleraos-preview-headers
+      traefik.http.middlewares.aceleraos-preview-headers.headers.customresponseheaders.X-Robots-Tag: "noindex, nofollow"
+networks:
+  proxy:
+    external: true
+    name: easypanel

@@ -9,7 +9,7 @@ export default async function BroadcastPage() {
   const org = await resolveActiveOrg(user);
   const canManage = org?.role === "admin" || org?.role === "manager";
   return (
-    <div className="flex h-full flex-col gap-6 p-6">
+    <div className="acelera-page flex h-full flex-col gap-6">
       <header>
         <p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Operação de vendas</p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight">Disparo de mensagens</h1>

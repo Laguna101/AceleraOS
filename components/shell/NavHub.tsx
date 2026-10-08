@@ -74,7 +74,7 @@ export function NavHub({
   const secoes = hubSections(group, isPlatformAdmin, role, interfaceSettings);
 
   return (
-    <div className="flex h-full flex-col gap-8 p-6">
+    <div className="acelera-page flex h-full flex-col gap-8">
       <header>
         <h1 className="text-2xl font-semibold tracking-tight">{traduzir(title, locale)}</h1>
         {subtitle && <p className="text-sm text-muted-foreground">{traduzir(subtitle, locale)}</p>}
@@ -97,7 +97,7 @@ export function NavHub({
               const Icon = item.icon;
               return (
                 <Link key={item.href} href={item.href} className="block">
-                  <Card className="flex h-full gap-3 p-4 transition-colors hover:border-border-strong">
+                  <Card className="acelera-hub-link h-full transition-colors">
                     <Icon
                       size={20}
                       weight="regular"

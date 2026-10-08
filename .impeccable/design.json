@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T11:31:13.8723970-03:00",
+  "title": "Design System: AceleraOS",
+  "extensions": {
+    "colorMeta": {
+      "sage-operational": {
+        "role": "primary",
+        "displayName": "Sálvia Operacional",
+        "canonical": "#67885d",
+        "tonalRamp": ["#171f15", "#2f3c2b", "#41573b", "#506d48", "#67885d", "#82a077", "#c8d6c1", "#f3f6f1"]
+      },
+      "sage-soft": {
+        "role": "primary",
+        "displayName": "Névoa de Sálvia",
+        "canonical": "#e4ebe0",
+        "tonalRamp": ["#171f15", "#2f3c2b", "#41573b", "#506d48", "#67885d", "#82a077", "#c8d6c1", "#f3f6f1"]
+      },
+      "warm-canvas": {
+        "role": "neutral",
+        "displayName": "Tela Quente",
+        "canonical": "#faf9f6",
+        "tonalRamp": ["#0e0d0a", "#1c1a16", "#46433b", "#5d594f", "#7d786c", "#a9a395", "#e7e3da", "#faf9f6"]
+      },
+      "warm-ink": {
+        "role": "neutral",
+        "displayName": "Tinta Quente",
+        "canonical": "#1c1a16",
+        "tonalRamp": ["#0e0d0a", "#1c1a16", "#46433b", "#5d594f", "#7d786c", "#a9a395", "#e7e3da", "#faf9f6"]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Sucesso Sereno",
+        "canonical": "#5a8a5f",
+        "tonalRamp": ["#162419", "#243c29", "#36583c", "#48734f", "#5a8a5f", "#82a885", "#bdd0bf", "#eff5ef"]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Atenção Âmbar",
+        "canonical": "#b07a2b",
+        "tonalRamp": ["#2b1c08", "#493110", "#6d4a18", "#916420", "#b07a2b", "#cf9b55", "#e7c694", "#fbf2df"]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Erro Terracota",
+        "canonical": "#a94a3c",
+        "tonalRamp": ["#2a100c", "#481b16", "#6b2b23", "#8d3c31", "#a94a3c", "#c87263", "#e5aaa0", "#faece9"]
+      },
+      "info": {
+        "role": "semantic",
+        "displayName": "Informação Mineral",
+        "canonical": "#4a7a93",
+        "tonalRamp": ["#10212a", "#193846", "#285568", "#397087", "#4a7a93", "#7da9bf", "#b4cedb", "#edf5f8"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título principal das views operacionais."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de modais e superfícies de alta hierarquia."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de cartões, colunas e grupos."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto padrão de controles e conteúdo operacional."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Badges, timestamps e microcopy."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "IDs, valores, datas e números tabulares."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover",
+        "value": "0 1px 2px 0 rgba(20,18,14,0.04)",
+        "purpose": "Elevação curta de cartões interativos."
+      },
+      {
+        "name": "floating",
+        "value": "0 4px 12px -2px rgba(20,18,14,0.06), 0 2px 4px -1px rgba(20,18,14,0.04)",
+        "purpose": "Menus, popovers e toasts."
+      },
+      {
+        "name": "overlay",
+        "value": "0 12px 32px -6px rgba(20,18,14,0.10), 0 4px 12px -2px rgba(20,18,14,0.06)",
+        "purpose": "Modais, sheets e painéis sobrepostos."
+      },
+      {
+        "name": "dark-highlight",
+        "value": "inset 0 1px 0 0 rgba(255,255,255,0.04)",
+        "purpose": "Separação sutil em superfícies escuras."
+      }
+    ],
+    "motion": [
+      {
+        "name": "fast",
+        "value": "120ms cubic-bezier(0.2, 0, 0, 1)",
+        "purpose": "Cor, borda, hover e microfeedback."
+      },
+      {
+        "name": "base",
+        "value": "200ms cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "purpose": "Fades e transições comuns."
+      },
+      {
+        "name": "slow",
+        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrada de página, modal e sheet."
+      },
+      {
+        "name": "spring",
+        "value": "420ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "purpose": "Confirmações pontuais e arraste."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "768px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "A ação principal de um contexto operacional.",
+      "html": "<button class=\"ds-btn-primary\">Salvar alterações</button>",
+      "css": ".ds-btn-primary{height:36px;padding:0 16px;border:0;border-radius:4px;background:#67885d;color:#fff;font:700 14px/20px 'Atkinson Hyperlegible',system-ui,sans-serif;box-shadow:0 1px 2px rgba(20,18,14,.04);transition:background 120ms cubic-bezier(.2,0,0,1),transform 120ms cubic-bezier(.2,0,0,1),box-shadow 200ms cubic-bezier(.25,.1,.25,1);cursor:pointer}.ds-btn-primary:hover{background:#506d48;box-shadow:0 4px 12px -2px rgba(20,18,14,.06)}.ds-btn-primary:active{background:#41573b;transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:2px solid #67885d;outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação de apoio ao lado de uma ação principal.",
+      "html": "<button class=\"ds-btn-secondary\">Cancelar</button>",
+      "css": ".ds-btn-secondary{height:36px;padding:0 16px;border:1px solid #e7e3da;border-radius:4px;background:#f5f3ee;color:#1c1a16;font:400 14px/20px 'Atkinson Hyperlegible',system-ui,sans-serif;transition:background 120ms cubic-bezier(.2,0,0,1),border-color 120ms cubic-bezier(.2,0,0,1),transform 120ms cubic-bezier(.2,0,0,1);cursor:pointer}.ds-btn-secondary:hover{background:#e4ebe0;border-color:#c8d6c1}.ds-btn-secondary:active{transform:translateY(1px)}.ds-btn-secondary:focus-visible{outline:2px solid #67885d;outline-offset:2px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo compacto para dados e filtros operacionais.",
+      "html": "<label class=\"ds-field\"><span>Nome do contato</span><input placeholder=\"Digite o nome\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;color:#5d594f;font:400 12px/16px 'Atkinson Hyperlegible',system-ui,sans-serif}.ds-field input{height:36px;padding:0 12px;border:1px solid #e7e3da;border-radius:4px;background:#faf9f6;color:#1c1a16;font:400 14px/20px 'Atkinson Hyperlegible',system-ui,sans-serif;outline:none;transition:border-color 120ms cubic-bezier(.2,0,0,1),box-shadow 120ms cubic-bezier(.2,0,0,1)}.ds-field input:focus{border-color:#67885d;box-shadow:0 0 0 3px #e4ebe0}.ds-field input::placeholder{color:#7d786c}"
+    },
+    {
+      "name": "Interactive Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Unidade operacional clicável com elevação disciplinada.",
+      "html": "<article class=\"ds-card\"><div><strong>Campanha regional</strong><p>Leads e conversas da última semana.</p></div><span>R$ 2.480</span></article>",
+      "css": ".ds-card{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px;border:1px solid #e7e3da;border-radius:12px;background:#fff;color:#1c1a16;box-shadow:0 1px 2px rgba(20,18,14,.04);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;transition:border-color 120ms cubic-bezier(.2,0,0,1),transform 200ms cubic-bezier(.16,1,.3,1),box-shadow 200ms cubic-bezier(.16,1,.3,1);cursor:pointer}.ds-card:hover{border-color:#82a077;transform:translateY(-1px);box-shadow:0 4px 12px -2px rgba(20,18,14,.06),0 2px 4px -1px rgba(20,18,14,.04)}.ds-card:focus-within{outline:2px solid #67885d;outline-offset:2px}.ds-card strong{display:block;font-size:16px;line-height:22px}.ds-card p{margin:4px 0 0;color:#5d594f;font-size:13px;line-height:18px}.ds-card>span{font:400 13px/18px 'IBM Plex Mono',monospace}"
+    },
+    {
+      "name": "Accent Badge",
+      "kind": "chip",
+      "refersTo": "badge-accent",
+      "description": "Destaque curto de estado ou classificação.",
+      "html": "<span class=\"ds-badge\"><i></i>Em andamento</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px;border-radius:9999px;background:#e4ebe0;color:#41573b;font:400 12px/16px 'Atkinson Hyperlegible',system-ui,sans-serif}.ds-badge i{width:6px;height:6px;border-radius:9999px;background:#67885d}.ds-badge:hover{background:#c8d6c1}.ds-badge:focus-visible{outline:2px solid #67885d;outline-offset:2px}"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "description": "Navegação greige com seleção pontual em sálvia.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Inbox</a><a class=\"active\" href=\"#\">Contatos</a><a href=\"#\">Agenda</a></nav>",
+      "css": ".ds-nav{display:grid;gap:2px;width:220px;padding:12px;border:1px solid #e7e3da;border-radius:12px;background:#fff;box-shadow:0 4px 12px -2px rgba(20,18,14,.06);font:400 14px/20px 'Atkinson Hyperlegible',system-ui,sans-serif}.ds-nav a{display:flex;align-items:center;height:38px;padding:0 10px;border-radius:4px;color:#5d594f;text-decoration:none;transition:background 120ms cubic-bezier(.2,0,0,1),color 120ms cubic-bezier(.2,0,0,1)}.ds-nav a:hover,.ds-nav a.active{background:#e4ebe0;color:#506d48}.ds-nav a.active{font-weight:700}.ds-nav a:focus-visible{outline:2px solid #67885d;outline-offset:2px}"
+    },
+    {
+      "name": "Operational Row",
+      "kind": "custom",
+      "description": "Linha Aerada para contatos, conversas e tarefas.",
+      "html": "<div class=\"ds-row\"><div><strong>Marina Alves</strong><small>Orçamento enviado há 12 min</small></div><time>14:32</time></div>",
+      "css": ".ds-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:16px 20px;border:1px solid #e7e3da;border-radius:8px;background:#fff;color:#1c1a16;font-family:'Atkinson Hyperlegible',system-ui,sans-serif;box-shadow:0 1px 2px rgba(20,18,14,.04);transition:border-color 120ms cubic-bezier(.2,0,0,1),transform 200ms cubic-bezier(.16,1,.3,1),box-shadow 200ms cubic-bezier(.16,1,.3,1)}.ds-row:hover{border-color:#82a077;transform:translateY(-1px);box-shadow:0 4px 12px -2px rgba(20,18,14,.06)}.ds-row strong{display:block;font-size:14px;line-height:20px}.ds-row small{display:block;margin-top:2px;color:#5d594f;font-size:13px;line-height:18px}.ds-row time{color:#7d786c;font:400 12px/16px 'IBM Plex Mono',monospace}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Jardim Operacional",
+    "overview": "O AceleraOS é um ambiente de trabalho vivo, organizado e cultivado com intenção. A Sálvia Operacional e os neutros quentes criam caráter orgânico; a tipografia precisa, os componentes técnicos e a elevação disciplinada sustentam uma experiência premium, sóbria e consultiva para operar marketing, vendas e relacionamento.",
+    "keyCharacteristics": [
+      "Paleta orgânica e dessaturada com neutros quentes.",
+      "Aparência premium, sóbria e consultiva.",
+      "Controles técnicos, compactos e previsíveis.",
+      "Elevação clara em cartões, menus, painéis e modais.",
+      "Alta legibilidade para trabalho operacional prolongado."
+    ],
+    "rules": [
+      {
+        "name": "The Cultivated Accent Rule",
+        "body": "A sálvia marca ações, seleção e estado; nunca cobre grandes áreas.",
+        "section": "colors"
+      },
+      {
+        "name": "The Read-It-Once Rule",
+        "body": "Hierarquia vem de tamanho, peso e espaço; a leitura deve ser resolvida na primeira passagem.",
+        "section": "typography"
+      },
+      {
+        "name": "The Earned Elevation Rule",
+        "body": "Toda sombra explica uma camada, interação ou mudança de foco.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use Sálvia Operacional para ações, seleção, foco e estado.",
+      "Combine cor, ícone e label para comunicar estados.",
+      "Preserve listas Aerada e controles compactos.",
+      "Use elevação para separar camadas com função clara."
+    ],
+    "donts": [
+      "Não use gradientes roxos ou azuis nem grades repetitivas de cartões.",
+      "Não transforme a sidebar em um bloco de sálvia.",
+      "Não use glassmorphism, preto puro ou sombras pesadas.",
+      "Não use emojis, brilho de IA ou animações decorativas."
+    ]
+  }
+}

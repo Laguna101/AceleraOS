@@ -199,7 +199,7 @@ export function DossieDoFollowup({ id, canWrite }: Props) {
   };
 
   return (
-    <div className="flex h-full flex-col gap-6 p-6">
+    <div className="acelera-page flex h-full flex-col gap-6">
       <header className="flex flex-col gap-3">
         <Link
           href="/app/ai/followups"

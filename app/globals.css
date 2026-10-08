@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+@import "./aceleraos.css";
 
 /* Alcance do scanner. O v4 acha os arquivos sozinho a partir da raiz do git,
    mas isso varreria `docs/` (149 markdowns cheios de exemplo de classe) e
@@ -11,34 +12,6 @@
 @source "../components";
 @source "../lib";
 @source "../hooks";
-
-/* Template operacional AceleraOS: forma a casca e o canvas, além das cores. */
-.acelera-shell {
-  /* O tema do produto fica estável dentro do CRM. A marca do tenant continua
-     disponível no nome/logo, mas não substitui a identidade visual do AceleraOS. */
-  --color-accent-50: #f3f6f1;
-  --color-accent-100: #e4ebe0;
-  --color-accent-200: #c8d6c1;
-  --color-accent-300: #a4ba9a;
-  --color-accent-400: #82a077;
-  --color-accent-500: #67885d;
-  --color-accent-600: #506d48;
-  --color-accent-700: #41573b;
-  --color-accent: #506d48;
-  --color-accent-hover: #41573b;
-  --color-accent-soft: #e4ebe0;
-  --color-accent-fg: #ffffff;
-  --primary: #506d48;
-  --primary-foreground: #ffffff;
-  --ring: #67885d;
-  color: var(--color-text);
-}
-.acelera-sidebar { background: var(--color-surface); border-color: var(--color-border); box-shadow: var(--shadow-sm); }
-.acelera-sidebar nav a { min-height: 36px; }
-.acelera-sidebar a[aria-current="page"] { position: relative; font-weight: 700; }
-.acelera-sidebar a[aria-current="page"]::before { content: ""; position: absolute; left: 0; top: 7px; bottom: 7px; width: 3px; border-radius: 0 3px 3px 0; background: var(--color-accent-500); }
-.acelera-topbar { border-color: var(--color-border); box-shadow: var(--shadow-xs); }
-.acelera-canvas { background: radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-accent-50) 55%, transparent), transparent 34rem), var(--color-bg); }
 
 /* Escuro por atributo, não por classe. Equivale ao `darkMode: ["class",
    "[data-theme='dark']"]` do v3: a forma de duas casas do v3 NÃO acumula com

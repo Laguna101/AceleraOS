@@ -65,7 +65,7 @@ export default async function OrgMemoryPage() {
   };
 
   return (
-    <div className="flex h-full flex-col gap-6 p-6">
+    <div className="acelera-page flex h-full flex-col gap-6">
       <header>
         <h1 className="text-2xl font-semibold tracking-tight">{traduzir("Memória da IA", idioma)}</h1>
         <p className="text-sm text-muted-foreground">

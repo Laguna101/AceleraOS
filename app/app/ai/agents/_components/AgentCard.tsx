@@ -57,7 +57,7 @@ export function AgentCard({ agent, canWrite }: Props) {
   const status = deriveAgentStatus(agent);
 
   return (
-    <Card className="flex h-full flex-col gap-3 p-4">
+    <Card className="acelera-agent flex h-full flex-col">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <h3 className="truncate font-medium" title={agent.name}>

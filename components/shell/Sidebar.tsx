@@ -119,7 +119,7 @@ export function SidebarContent({
     <>
       <div
         className={cn(
-          "flex h-14 items-center border-b px-4",
+          "flex h-[72px] items-center border-b px-6",
           collapsed ? "justify-center" : "justify-start",
         )}
       >
@@ -266,7 +266,7 @@ export function SidebarContent({
                           className={cn(
                             "relative flex items-center gap-3 rounded-md px-3 py-1 text-sm transition-colors",
                             isActive
-                              ? "bg-accent text-accent-foreground"
+                              ? "bg-accent-soft text-accent"
                               : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
                             collapsed && "justify-center px-2",
                           )}
@@ -292,7 +292,7 @@ export function SidebarContent({
                         className={cn(
                           "flex items-center gap-3 rounded-md px-3 py-1 text-sm transition-colors",
                           pathname === group.hub.href
-                            ? "bg-accent text-accent-foreground"
+                            ? "bg-accent-soft text-accent"
                             : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
                           collapsed && "justify-center px-2",
                         )}
@@ -318,7 +318,7 @@ export function SidebarContent({
             className={cn(
               "mb-1 flex items-center gap-3 rounded-md px-3 py-1 text-sm transition-colors",
               pathname.startsWith(rodape.href)
-                ? "bg-accent text-accent-foreground"
+                ? "bg-accent-soft text-accent"
                 : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
               collapsed && "justify-center px-2",
             )}
@@ -376,7 +376,7 @@ export function Sidebar({ collapsed }: { collapsed: boolean }) {
         // `shrink-0` porque item de flex encolhe por padrão, e uma barra de 60
         // espremida para caber é o mesmo defeito por outro caminho.
         "acelera-sidebar sticky top-0 z-30 flex h-screen shrink-0 flex-col border-r bg-card transition-[width] duration-200",
-        collapsed ? "w-16" : "w-60",
+        collapsed ? "w-16" : "w-[236px]",
       )}
     >
       <SidebarContent collapsed={collapsed} />

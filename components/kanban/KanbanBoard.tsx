@@ -245,7 +245,7 @@ export function KanbanBoard({
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="flex h-full gap-3 overflow-x-auto p-4">
+      <div className="acelera-board flex h-full gap-5 overflow-x-auto p-5">
         {data.stages.map((stage) => (
           <StageColumn
             key={stage.id}
