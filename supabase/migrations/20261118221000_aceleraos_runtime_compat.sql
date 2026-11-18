@@ -1,0 +1,28 @@
+-- Runtime compatibility additions for the existing CRM Imobiliario schema.
+alter table public.organizations add column if not exists slug text;
+alter table public.organizations add column if not exists legal_name text;
+alter table public.organizations add column if not exists display_name text;
+alter table public.organizations add column if not exists status text not null default 'active';
+alter table public.organizations add column if not exists timezone text not null default 'America/Sao_Paulo';
+alter table public.organizations add column if not exists locale text not null default 'pt-BR';
+alter table public.organizations add column if not exists settings jsonb not null default '{}'::jsonb;
+update public.organizations set display_name = coalesce(display_name,name), legal_name = coalesce(legal_name,name), slug = coalesce(slug, lower(regexp_replace(name,'[^a-zA-Z0-9]+','-','g'))) where display_name is null or legal_name is null or slug is null;
+create unique index if not exists organizations_slug_key on public.organizations(slug) where slug is not null;
+alter table public.user_organizations add column if not exists interface_settings jsonb not null default '{"preset":"completa"}'::jsonb;
+alter table public.user_organizations add column if not exists invited_by uuid references auth.users(id) on delete set null;
+alter table public.user_organizations add column if not exists invited_at timestamptz;
+alter table public.user_organizations add column if not exists accepted_at timestamptz;
+update public.user_organizations set accepted_at = coalesce(accepted_at, now()), invited_at = coalesce(invited_at, now()) where accepted_at is null;
+create table if not exists public.platform_branding (id integer primary key default 1 check (id = 1), app_name text, logo_url text, accent_hex text, show_powered_by boolean not null default true, seeded_from_env boolean not null default false, updated_by uuid references auth.users(id) on delete set null, fallback_at timestamptz, fallback_reason text, updated_at timestamptz not null default now(), logo_path text);
+alter table public.platform_branding disable row level security;
+alter table public.messages add column if not exists sent_via text;
+alter table public.messages add column if not exists delivered_at timestamptz;
+alter table public.messages add column if not exists read_at timestamptz;
+create table if not exists public.channel_sessions (id uuid primary key default gen_random_uuid(), organization_id uuid not null references public.organizations(id) on delete cascade, provider text not null default 'waha', waha_session_name text, display_name text, phone_number text, status text not null default 'pending', status_reason text, last_health_check_at timestamptz, last_status_change_at timestamptz, daily_message_limit integer not null default 500, is_warmup_complete boolean not null default false, created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+alter table public.channel_sessions enable row level security;
+drop policy if exists channel_sessions_org_read on public.channel_sessions;
+create policy channel_sessions_org_read on public.channel_sessions for select to authenticated using (organization_id in (select public.fn_user_org_ids()) or public.fn_is_platform_admin());
+create table if not exists public.system_version (id integer primary key default 1 check (id=1), version text not null default 'crm-imobiliario-compat', current_version text, updated_at timestamptz not null default now());
+insert into public.system_version(id,version,current_version) values (1,'crm-imobiliario-compat','crm-imobiliario-compat') on conflict(id) do nothing;
+create or replace function public.fn_support_context() returns jsonb language sql stable security definer set search_path = public as $$ select null::jsonb; $$;
+create or replace function public.fn_support_callback_write_allowed(p_org uuid, p_actor uuid default null, p_session uuid default null) returns boolean language sql stable security definer set search_path = public as $$ select false; $$;
